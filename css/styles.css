@@ -206,6 +206,22 @@ footer .social-links img {
     margin: 0 10px;
 }
 
+
+.floating-whatsapp img {
+    width: 50px; /* আইকনের প্রস্থ */
+    height: 50px; /* আইকনের উচ্চতা */
+    border-radius: 50%; /* গোলাকার আইকন */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* সামান্য শ্যাডো */
+    transition: transform 0.3s ease;
+}
+
+.floating-whatsapp img:hover {
+    transform: scale(1.1); /* হোভার করলে আইকন সামান্য বড় দেখাবে */
+}
+
+
+
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .hero {
@@ -238,5 +254,11 @@ footer .social-links img {
         width: 100%;
         padding: 15px;
         font-size: 18px;
+    }
+}
+@media (max-width: 768px) {
+    .floating-whatsapp img {
+        width: 40px;
+        height: 40px;
     }
 }
