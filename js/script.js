@@ -23,3 +23,16 @@ document.querySelectorAll("nav ul li a").forEach(link => {
         }
     });
 });
+
+
+<!-- JavaScript to Generate WhatsApp Link -->
+
+ document.querySelectorAll('.whatsapp-button').forEach(button => {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      const serviceName = this.getAttribute('data-service');
+      const serviceImg = this.getAttribute('data-img');
+      const whatsappLink = `https://wa.me/8801983000739?text=I%20am%20interested%20in%20${encodeURIComponent(serviceName)}.%20Here%20is%20the%20image:%20${encodeURIComponent(serviceImg)}`;
+      window.open(whatsappLink, '_blank');
+    });
+  });
