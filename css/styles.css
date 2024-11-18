@@ -173,6 +173,90 @@ section {
     color: #777;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* Services Section */
+#services {
+    padding: 50px 30px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Contact Section */
 #contact .whatsapp-button {
     display: inline-block;
@@ -208,15 +292,15 @@ footer .social-links img {
 
 
 .floating-whatsapp img {
-    width: 50px; /* আইকনের প্রস্থ */
-    height: 50px; /* আইকনের উচ্চতা */
-    border-radius: 50%; /* গোলাকার আইকন */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* সামান্য শ্যাডো */
+    width: 50px; /* ?????? ?????? */
+    height: 50px; /* ?????? ?????? */
+    border-radius: 50%; /* ??????? ???? */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ??????? ?????? */
     transition: transform 0.3s ease;
 }
 
 .floating-whatsapp img:hover {
-    transform: scale(1.1); /* হোভার করলে আইকন সামান্য বড় দেখাবে */
+    transform: scale(1.1); /* ????? ???? ???? ??????? ?? ?????? */
 }
 
 
