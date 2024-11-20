@@ -59,7 +59,7 @@ header nav ul li a:hover {
 
 /* News Tracker Styling */
 .news-tracker {
-    background-color: ##4caf50; /* Yellow background */
+    background-color: #ffebe7; /* Yellow background */
     color: #000000; /* Black text color */
     font-size: 16px; /* Text size */
     text-align: center; /* Centered text */
@@ -71,34 +71,37 @@ header nav ul li a:hover {
 }
 
 .news-tracker p {
+    display: inline-block; /* Inline block to calculate proper width */
     margin: 0;
     white-space: nowrap; /* Prevent wrapping */
-    animation: scroll-text 10s linear infinite; /* Animation for scrolling */
+    animation: scroll-text linear infinite; /* Set animation dynamically */
 }
 
 /* Scrolling animation */
 @keyframes scroll-text {
     0% {
-        transform: translateX(100%);
+        transform: translateX(100%); /* Start from outside viewport */
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-100%); /* End outside the viewport */
     }
 }
 
-/* Mobile Screen (speed adjusted) */
+/* Responsive Adjustments */
 @media (max-width: 767px) {
     .news-tracker p {
-        animation-duration: 10s; /* Slower scrolling for mobile */
+        font-size: 14px; /* Smaller font size for mobile */
+        animation-duration: 20s; /* Adjusted for proper scrolling */
     }
 }
 
-/* Desktop Screen (speed adjusted) */
 @media (min-width: 768px) {
     .news-tracker p {
-        animation-duration: 20s; /* Slower scrolling for desktop */
+        animation-duration: 20s; /* Desktop scrolling time */
     }
 }
+
+
 
 /* Hero Section */
 .hero {
@@ -183,6 +186,60 @@ header nav ul li a:hover {
         margin-top: 20px;
     }
 }
+
+
+/* Pop-up overlay */
+.popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Make sure it's on top */
+}
+
+/* Pop-up content */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%; /* Adjusted for better fitting on small screens */
+    max-width: 700px; /* Max width for larger screens */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* Prevents content overflow */
+}
+
+/* Iframe responsiveness */
+.popup-content iframe {
+    width: 100%; /* Full width of the pop-up content */
+    height: 500px; /* Adjusted height for mobile view */
+}
+
+/* Close button */
+.popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Additional media query for smaller screens */
+@media (max-width: 600px) {
+    .popup-content iframe {
+        height: 400px; /* Adjust iframe height for smaller screens */
+    }
+}
+
+
+
+
 
 /* Service Cards */
 section {
