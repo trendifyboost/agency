@@ -3,10 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trendify Boost</title>
+     <title>Trendify Boost</title>
+    <meta name="description" content="Trendify Boost provides expert ad management services on platforms like Facebook, YouTube, and Google to boost your business growth.">
+    <meta name="keywords" content="Trendify Boost, Facebook Ads, YouTube Ads, Google Ads, Ad Management, Digital Marketing, Business Growth, Ad Campaigns">
+    <meta name="author" content="Trendify Boost">
+
+    <!-- Open Graph for social media -->
+    <meta property="og:title" content="Trendify Boost - Expert Ads Management">
+    <meta property="og:description" content="Boost your business with expert ads management on Facebook, YouTube, and Google. Let us help you grow your brand!">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card for social sharing -->
+    <meta name="twitter:title" content="Trendify Boost - Expert Ads Management">
+    <meta name="twitter:description" content="Boost your business with expert ads management on Facebook, YouTube, and Google.">
+    <meta name="twitter:image" content="images/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Trendify Boost",
+      "url": "https://yourwebsite.com",
+      "logo": "https://yourwebsite.com/images/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+8801983000739",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.facebook.com/thatsnews24",
+        "https://www.instagram.com/trendifyboost"
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script defer src="js/script.js"></script>
+
 </head>
 <body>
        <!-- Header Section -->
@@ -35,13 +73,25 @@
         <div class="hero-content">
             <h2>Boost Your Business with Expert Ads Management!</h2>
             <p>
-                Let us help you scale your business with tailored ad campaigns on 
-                <strong>Facebook, YouTube, and Google</strong>. Maximize reach, drive conversions, and achieve measurable results.
+                আমরা ফেসবুক, ইউটিউব এবং গুগলে কাস্টমাইজড অ্যাড ক্যাম্পেইনের মাধ্যমে আপনার ব্যবসা স্কেল করতে সাহায্য করি। অ্যাড চালাতে চালাতে ক্লান্ত? আশানরুপ ফল পাচ্ছেন না? নিচে দেওয়া বাটনে চাপ দিয়ে নাম ফোন নম্বার লিখে যান! আপনার প্রডাক্ট বা সার্ভিস আপনার টার্গেটেড অডিএন্সের কাছে পৌছে দেওয়া দায়ীত্ব আমাদের।
             </p>
-            <a href="https://wa.me/8801983000739" class="cta">Get Started Now</a>
+            <a href="javascript:void(0);" class="cta" id="get-started-btn">Get Started Now</a>
         </div>
         <img src="images/user.png" alt="Nasimul Islam Sheikh" class="hero-image">
     </section>
+
+
+<!-- Pop-up Section -->
+<div class="popup-overlay" id="popup">
+    <div class="popup-content">
+        <span class="popup-close-btn" id="popup-close">&times;</span>
+        <h2>Fill Out the Form</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf9m0VtsG9JfSMXsnWs9K1Nr_lhOf3et243gg2M4vFKNNDN5A/viewform?embedded=true" width="640" height="797" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+</div>
+
+
+
 
     <!-- About Section -->
     <section id="about">
