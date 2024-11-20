@@ -36,3 +36,11 @@ document.querySelectorAll("nav ul li a").forEach(link => {
       window.open(whatsappLink, '_blank');
     });
   });
+
+document.getElementById('get-started-btn').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'flex'; // Show the pop-up
+});
+
+document.getElementById('popup-close').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'none'; // Hide the pop-up
+});
