@@ -7,6 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
     background-color: #f4f6f9;
     color: #333;
 }
@@ -101,7 +102,14 @@ header nav ul li a:hover {
     }
 }
 
-
+@keyframes scroll-text {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
 
 /* Hero Section */
 .hero {
@@ -186,7 +194,6 @@ header nav ul li a:hover {
         margin-top: 20px;
     }
 }
-
 
 /* Pop-up overlay */
 .popup-overlay {
@@ -277,15 +284,6 @@ section {
 
 
 
-
-
-
-
-
-
-
-
-
 /* Services Section */
 #services {
     padding: 50px 30px;
@@ -341,7 +339,61 @@ section {
 }
 
 
+/* রিভিউ সেকশনের স্টাইল */
+#reviews {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
 
+#reviews h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.reviews-container {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.reviews-slider {
+    display: flex;
+    gap: 20px;
+    animation: scroll-reviews 20s linear infinite;
+}
+
+.reviews-slider img {
+    width: auto; /* প্রাকৃতিক প্রস্থ */
+    height: 150px; /* উচ্চতা নির্ধারণ */
+    object-fit: contain; /* আকৃতি ধরে রাখা */
+    border-radius: 10px; /* কোণ গোল করা */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease; /* জুম ইফেক্ট */
+    image-rendering: auto; /* রেন্ডারিং উন্নত */
+}
+.reviews-slider img:hover {
+    transform: scale(1.05); /* হোভার জুম */
+}
+
+/* এনিমেশন */
+@keyframes scroll-reviews {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* মোবাইল রেস্পনসিভ */
+@media (max-width: 768px) {
+    .reviews-slider img {
+        width: 150px;
+    }
+}
 
 
 .whatsapp-button {
@@ -359,17 +411,6 @@ section {
   .whatsapp-button:hover {
     background-color: #1EBE54;
   }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -517,5 +558,11 @@ footer .qr-code {
     .floating-whatsapp img {
         width: 40px;
         height: 40px;
+    }
+}
+@media (max-width: 480px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
     }
 }
