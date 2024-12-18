@@ -1,74 +1,69 @@
-// Import Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+ // Import Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
-// Firebase Configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyC5JTd88XMPaw8ThV8i4wh8r37uhSuuKiQ",
-    authDomain: "trendify-30126.firebaseapp.com",
-    databaseURL: "https://trendify-30126-default-rtdb.firebaseio.com",
-    projectId: "trendify-30126",
-    storageBucket: "trendify-30126.firebasestorage.app",
-    messagingSenderId: "816600328899",
-    appId: "1:816600328899:web:4b01799c1e82e932451076",
-    measurementId: "G-9QV2QDB3CG"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-// Elements
-const getStartedBtn = document.getElementById("getStartedBtn");
-const popup = document.getElementById("popup");
-const popupCloseBtn = document.getElementById("popup-close");
-const userForm = document.getElementById("userForm");
-
-// Show Popup
-getStartedBtn.addEventListener("click", () => {
-    popup.style.display = "block";
-});
-
-// Close Popup
-popupCloseBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-});
-
-// Form Submission
-userForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const whatsapp = document.getElementById("whatsapp").checked;
-    const imo = document.getElementById("imo").checked;
-    const phoneCall = document.getElementById("phoneCall").checked;
-
-    // Create Data Object
-    const data = {
-        name: name,
-        phone: phone,
-        preferences: {
-            whatsapp: whatsapp,
-            imo: imo,
-            phoneCall: phoneCall,
-        },
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5JTd88XMPaw8ThV8i4wh8r37uhSuuKiQ",
+      authDomain: "trendify-30126.firebaseapp.com",
+      databaseURL: "https://trendify-30126-default-rtdb.firebaseio.com",
+      projectId: "trendify-30126",
+      storageBucket: "trendify-30126.firebasestorage.app",
+      messagingSenderId: "816600328899",
+      appId: "1:816600328899:web:4b01799c1e82e932451076",
+      measurementId: "G-9QV2QDB3CG"
     };
 
-    // Store Data in Firebase
-    const userId = Date.now(); // Unique ID
-    set(ref(db, "users/" + userId), data)
-        .then(() => {
-            alert("Data stored successfully!");
-            userForm.reset();
-            popup.style.display = "none";
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Show Popup
+    const getStartedBtn = document.getElementById("get-started-btn");
+    const popupForm = document.getElementById("popup-form");
+    const popupOverlay = document.getElementById("popup-overlay");
+
+    getStartedBtn.addEventListener("click", () => {
+      popupOverlay.style.display = "block";
+      popupForm.style.display = "block";
+    });
+
+    // Hide Popup on Overlay Click
+    popupOverlay.addEventListener("click", () => {
+      popupOverlay.style.display = "none";
+      popupForm.style.display = "none";
+    });
+
+    // Submit Form
+    const submitBtn = document.getElementById("submit-btn");
+    submitBtn.addEventListener("click", () => {
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const whatsapp = document.getElementById("whatsapp").checked;
+      const imo = document.getElementById("imo").checked;
+      const phoneContact = document.getElementById("phone-contact").checked;
+
+      if (name && phone) {
+        const userId = Date.now(); // Generate unique ID
+        set(ref(db, `users/${userId}`), {
+          name,
+          phone,
+          whatsapp,
+          imo,
+          phoneContact,
         })
-        .catch((error) => {
-            console.error("Error storing data: ", error);
-        });
-});
-
-
+          .then(() => {
+            alert("Data saved successfully!");
+            popupOverlay.style.display = "none";
+            popupForm.style.display = "none";
+          })
+          .catch((error) => {
+            console.error("Error saving data:", error);
+          });
+      } else {
+        alert("Please fill in all required fields.");
+      }
+    });
 
 
 // Floating WhatsApp Button
