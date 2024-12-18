@@ -13,7 +13,7 @@
     <script defer src="js/script.js"></script>
 
 
-    <!-- Firebase CDN -->
+     <!-- Load Firebase SDK from CDN -->
     <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
 
@@ -60,10 +60,10 @@
 
 
 <!-- Your HTML content -->
-   <!-- Button to Open Popup -->
+ <!-- Button to Open Form -->
     <button id="get-started-btn">Get Started</button>
 
-    <!-- Overlay Popup Form -->
+    <!-- Popup Overlay -->
     <div id="popup-overlay" style="display:none;"></div>
     <div id="popup-form" style="display:none;">
         <label>Name: <input type="text" id="name"></label>
@@ -71,11 +71,12 @@
         <label>WhatsApp: <input type="checkbox" id="whatsapp"></label>
         <label>IMO: <input type="checkbox" id="imo"></label>
         <label>Phone Contact: <input type="checkbox" id="phone-contact"></label>
+
         <button id="submit-btn">Submit</button>
     </div>
 
     <script>
-        // ✅ Firebase Initialization
+        // ✅ Initialize Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyC5JTd88XMPaw8ThV8i4wh8r37uhSuuKiQ",
             authDomain: "trendify-30126.firebaseapp.com",
@@ -90,7 +91,7 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        // Open Popup Form
+        // Open the form popup
         document.getElementById('get-started-btn').addEventListener('click', () => {
             document.getElementById('popup-overlay').style.display = 'block';
             document.getElementById('popup-form').style.display = 'block';
@@ -101,7 +102,7 @@
             document.getElementById('popup-form').style.display = 'none';
         });
 
-        // Save Form Data to Firebase
+        // Save form data to Firebase
         document.getElementById('submit-btn').addEventListener('click', () => {
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
@@ -119,16 +120,16 @@
                     imo,
                     phoneContact
                 }).then(() => {
-                    alert('Data saved successfully!');
+                    alert('Data saved successfully');
                     document.getElementById('popup-overlay').style.display = 'none';
                     document.getElementById('popup-form').style.display = 'none';
                 }).catch((error) => console.error('Data Save Error:', error));
+                
             } else {
-                alert('Please fill in all fields.');
+                alert('Please fill in all fields');
             }
         });
     </script>
-
 
 
 
