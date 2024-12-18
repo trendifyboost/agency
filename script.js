@@ -1,6 +1,6 @@
 // Firebase Imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -44,12 +44,15 @@ document.getElementById("submit-lead-button").addEventListener("click", () => {
     return;
   }
 
-  const safeName = name.replace(/[^a-zA-Z0-9]/g, "_");
-  const customerRef = ref(db, `customerLeads/${safeName}`);
+  const db = getDatabase();
+  const customerLeadsRef = ref(db, "customerLeads");
+  const newLeadRef = push(customerLeadsRef); // Create a new unique reference
 
-  set(customerRef, {
+  set(newLeadRef, {
+    name,
     phoneNumber,
-    contactMethod
+    contactMethod,
+    createdAt: new Date().toISOString()
   })
   .then(() => {
     alert("Customer lead added successfully!");
