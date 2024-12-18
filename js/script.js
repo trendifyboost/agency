@@ -1,70 +1,59 @@
- // Import Firebase
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+// Import Firebase modules
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
-    // Firebase Configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyC5JTd88XMPaw8ThV8i4wh8r37uhSuuKiQ",
-      authDomain: "trendify-30126.firebaseapp.com",
-      databaseURL: "https://trendify-30126-default-rtdb.firebaseio.com",
-      projectId: "trendify-30126",
-      storageBucket: "trendify-30126.firebasestorage.app",
-      messagingSenderId: "816600328899",
-      appId: "1:816600328899:web:4b01799c1e82e932451076",
-      measurementId: "G-9QV2QDB3CG"
-    };
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyC5JTd88XMPaw8ThV8i4wh8r37uhSuuKiQ",
+    authDomain: "trendify-30126.firebaseapp.com",
+    databaseURL: "https://trendify-30126-default-rtdb.firebaseio.com",
+    projectId: "trendify-30126",
+    storageBucket: "trendify-30126.firebasestorage.app",
+    messagingSenderId: "816600328899",
+    appId: "1:816600328899:web:4b01799c1e82e932451076",
+    measurementId: "G-9QV2QDB3CG"
+};
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
-    // Show Popup
-    const getStartedBtn = document.getElementById("get-started-btn");
-    const popupForm = document.getElementById("popup-form");
-    const popupOverlay = document.getElementById("popup-overlay");
+// Show Popup
+const getStartedBtn = document.getElementById('get-started-btn');
+const popupForm = document.getElementById('popup-form');
+const popupOverlay = document.getElementById('popup-overlay');
 
-    getStartedBtn.addEventListener("click", () => {
-      popupOverlay.style.display = "block";
-      popupForm.style.display = "block";
-    });
+getStartedBtn.addEventListener('click', () => {
+    popupOverlay.style.display = 'block';
+    popupForm.style.display = 'block';
+});
 
-    // Hide Popup on Overlay Click
-    popupOverlay.addEventListener("click", () => {
-      popupOverlay.style.display = "none";
-      popupForm.style.display = "none";
-    });
+popupOverlay.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+    popupForm.style.display = 'none';
+});
 
-    // Submit Form
-    const submitBtn = document.getElementById("submit-btn");
-    submitBtn.addEventListener("click", () => {
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const whatsapp = document.getElementById("whatsapp").checked;
-      const imo = document.getElementById("imo").checked;
-      const phoneContact = document.getElementById("phone-contact").checked;
+// Submit Form Data to Firebase
+document.getElementById('submit-btn').addEventListener('click', () => {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const whatsapp = document.getElementById('whatsapp').checked;
+    const imo = document.getElementById('imo').checked;
+    const phoneContact = document.getElementById('phone-contact').checked;
 
-      if (name && phone) {
-        const userId = Date.now(); // Generate unique ID
-        set(ref(db, `users/${userId}`), {
-          name,
-          phone,
-          whatsapp,
-          imo,
-          phoneContact,
-        })
-          .then(() => {
-            alert("Data saved successfully!");
-            popupOverlay.style.display = "none";
-            popupForm.style.display = "none";
-          })
-          .catch((error) => {
-            console.error("Error saving data:", error);
-          });
-      } else {
-        alert("Please fill in all required fields.");
-      }
-    });
-
+    if (name && phone) {
+        const userId = Date.now();
+        set(ref(db, `users/${userId}`), { name, phone, whatsapp, imo, phoneContact })
+            .then(() => {
+                alert("Data saved successfully!");
+                popupOverlay.style.display = 'none';
+                popupForm.style.display = 'none';
+            })
+            .catch((error) => console.error('Error saving data:', error));
+    } else {
+        alert('Please fill in all required fields.');
+    }
+});
 
 // Floating WhatsApp Button
 document.addEventListener("DOMContentLoaded", () => {
