@@ -45,8 +45,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script defer src="js/script.js"></script>
-<script type="module" src="js/script.js"></script>
-
+<script type="module" src="path-to-your-script.js"></script>
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -101,29 +100,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <!-- Pop-up Section -->
+ <!-- Get Started Button -->
+    <button id="getStartedBtn" class="get-started-button">Fill Out the Form</button>
 
-<!-- Pop-up Form Section -->
-<div class="popup-overlay" id="popup">
-    <div class="popup-content">
-        <span class="popup-close-btn" id="popup-close">&times;</span>
-        <h2>Fill Out the Form</h2>
-        <form id="userForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
-            
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" placeholder="Enter your phone number" required>
-            
-            <p>Select Contact Preference:</p>
-            <label><input type="checkbox" id="whatsapp" value="WhatsApp"> WhatsApp</label><br>
-            <label><input type="checkbox" id="imo" value="Imo"> Imo</label><br>
-            <label><input type="checkbox" id="phoneCall" value="Phone"> Phone</label><br>
-            
-            <button type="submit">Submit</button>
-        </form>
+    <!-- Pop-up Form Section -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-content">
+            <span class="popup-close-btn" id="popup-close">&times;</span>
+            <h2>Fill Out the Form</h2>
+            <form id="userForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+                <p>Select Contact Preference:</p>
+                <label><input type="checkbox" id="whatsapp" value="WhatsApp"> WhatsApp</label><br>
+                <label><input type="checkbox" id="imo" value="Imo"> Imo</label><br>
+                <label><input type="checkbox" id="phoneCall" value="Phone"> Phone</label><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
-</div>
 
+    <!-- Include JavaScript -->
+    <script type="module" src="js/script.js"></script>
 
 
 
