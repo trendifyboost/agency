@@ -514,61 +514,115 @@ footer .qr-code {
     }
 }
 
-/* Modal Background */
+/* Popup Modal Styles */
 .modal {
-  display: none;
+  display: none; /* Initially hidden */
   position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-/* Modal Content */
 .modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 300px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Close Button */
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close-button:hover,
-.close-button:focus {
-  color: black;
-}
-
-/* Form Styling */
-input, select, button {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-button {
-  background-color: #4CAF50;
+/* Close Button Style */
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #ff4444;
+}
+
+/* Heading Style */
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Input and Select Field Styles */
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Submit Button Style */
+#submit-lead-button {
+  background-color: #28a745;
   color: white;
   border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 18px;
   cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+#submit-lead-button:hover {
+  background-color: #218838;
+}
+
+/* Animation for Modal Appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .modal-content h2 {
+    font-size: 20px;
+  }
+
+  #submit-lead-button {
+    font-size: 16px;
+    padding: 10px;
+  }
 }
