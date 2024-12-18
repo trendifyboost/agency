@@ -93,7 +93,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>
                 আমরা ফেসবুক, ইউটিউব এবং গুগলে কাস্টমাইজড অ্যাড ক্যাম্পেইনের মাধ্যমে আপনার ব্যবসা স্কেল করতে সাহায্য করি। অ্যাড চালাতে চালাতে ক্লান্ত? আশানরুপ ফল পাচ্ছেন না? নিচে দেওয়া বাটনে চাপ দিয়ে নাম ফোন নম্বার লিখে যান! আপনার প্রডাক্ট বা সার্ভিস আপনার টার্গেটেড অডিএন্সের কাছে পৌছে দেওয়া দায়ীত্ব আমাদের।
             </p>
-            <a href="javascript:void(0);" class="cta" id="get-started-btn">Get Started Now</a>
+		
+             <!-- Get Started Now Button -->
+  <button id="get-started-button">Get Started Now</button>
+
+  <!-- Popup Modal -->
+  <div id="popup-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Add Customer Lead</h2>
+      
+      <!-- Add Customer Lead Form -->
+      <div>
+        <input type="text" id="name" placeholder="Name" />
+        <input type="text" id="phone-number" placeholder="Phone Number" />
+        
+        <select id="contact-method">
+          <option value="">Select Contact Method</option>
+          <option value="Whatsapp">Whatsapp</option>
+          <option value="Imo">Imo</option>
+          <option value="Direct Call">Direct Call</option>
+        </select>
+
+        <button id="submit-lead-button">Add Lead</button>
+      </div>
+    </div>
+  </div>
+
         </div>
         <img src="images/user.png" alt="Nasimul Islam Sheikh" class="hero-image">
     </section>
