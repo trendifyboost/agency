@@ -100,11 +100,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <!-- Pop-up Section -->
+
+<!-- Pop-up Form Section -->
 <div class="popup-overlay" id="popup">
     <div class="popup-content">
         <span class="popup-close-btn" id="popup-close">&times;</span>
         <h2>Fill Out the Form</h2>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf9m0VtsG9JfSMXsnWs9K1Nr_lhOf3et243gg2M4vFKNNDN5A/viewform?embedded=true" width="640" height="797" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <form id="userForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+            
+            <p>Select Contact Preference:</p>
+            <label><input type="checkbox" id="whatsapp" value="WhatsApp"> WhatsApp</label><br>
+            <label><input type="checkbox" id="imo" value="Imo"> Imo</label><br>
+            <label><input type="checkbox" id="phoneCall" value="Phone"> Phone</label><br>
+            
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </div>
 
