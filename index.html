@@ -60,9 +60,10 @@
 
 
 <!-- Your HTML content -->
+   <!-- Button to Open Popup -->
     <button id="get-started-btn">Get Started</button>
 
-    <!-- Popup Form -->
+    <!-- Overlay Popup Form -->
     <div id="popup-overlay" style="display:none;"></div>
     <div id="popup-form" style="display:none;">
         <label>Name: <input type="text" id="name"></label>
@@ -74,7 +75,7 @@
     </div>
 
     <script>
-        // Firebase Configuration
+        // ✅ Firebase Initialization
         const firebaseConfig = {
             apiKey: "AIzaSyC5JTd88XMPaw8ThV8i4wh8r37uhSuuKiQ",
             authDomain: "trendify-30126.firebaseapp.com",
@@ -89,7 +90,7 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        // Show Popup Form
+        // Open Popup Form
         document.getElementById('get-started-btn').addEventListener('click', () => {
             document.getElementById('popup-overlay').style.display = 'block';
             document.getElementById('popup-form').style.display = 'block';
@@ -100,7 +101,7 @@
             document.getElementById('popup-form').style.display = 'none';
         });
 
-        // Submit Data to Firebase
+        // Save Form Data to Firebase
         document.getElementById('submit-btn').addEventListener('click', () => {
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
@@ -110,6 +111,7 @@
 
             if (name && phone) {
                 const userId = Date.now();
+
                 firebase.database().ref('users/' + userId).set({
                     name,
                     phone,
@@ -120,9 +122,9 @@
                     alert('Data saved successfully!');
                     document.getElementById('popup-overlay').style.display = 'none';
                     document.getElementById('popup-form').style.display = 'none';
-                }).catch((error) => console.error('Error saving data:', error));
+                }).catch((error) => console.error('Data Save Error:', error));
             } else {
-                alert('Please fill in all required fields.');
+                alert('Please fill in all fields.');
             }
         });
     </script>
