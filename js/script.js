@@ -15,8 +15,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
 
 // Show Popup
 const getStartedBtn = document.getElementById('get-started-btn');
@@ -43,42 +43,20 @@ document.getElementById('submit-btn').addEventListener('click', () => {
 
     if (name && phone) {
         const userId = Date.now();
-        set(ref(db, `users/${userId}`), { name, phone, whatsapp, imo, phoneContact })
-            .then(() => {
-                alert("Data saved successfully!");
-                popupOverlay.style.display = 'none';
-                popupForm.style.display = 'none';
-            })
-            .catch((error) => console.error('Error saving data:', error));
+        firebase.database().ref(`users/${userId}`).set({
+            name,
+            phone,
+            whatsapp,
+            imo,
+            phoneContact
+        }).then(() => {
+            alert("Data saved successfully!");
+            popupOverlay.style.display = 'none';
+            popupForm.style.display = 'none';
+        }).catch((error) => console.error('Error saving data:', error));
     } else {
         alert('Please fill in all required fields.');
     }
-});
-
-// Floating WhatsApp Button
-document.addEventListener("DOMContentLoaded", () => {
-    const whatsappButton = document.createElement("div");
-    whatsappButton.innerHTML = `
-        <a href="https://wa.me/8801983000739" target="_blank" class="floating-whatsapp">
-            <img src="images/whatsapp-icon.png" alt="WhatsApp">
-        </a>`;
-    whatsappButton.style.position = "fixed";
-    whatsappButton.style.bottom = "20px";
-    whatsappButton.style.right = "20px";
-    whatsappButton.style.zIndex = "1000";
-    document.body.appendChild(whatsappButton);
-});
-
-// Smooth Scroll for Navigation
-document.querySelectorAll("nav ul li a").forEach(link => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute("href").slice(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-        }
-    });
 });
 
 
