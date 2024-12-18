@@ -111,6 +111,45 @@ header nav ul li a:hover {
     }
 }
 
+
+#get-started-button {
+    background: linear-gradient(90deg, #ff6a95, #f46292);
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    box-shadow: 0 5px 15px rgba(255, 0, 128, 0.3);
+    font-weight: 600;
+}
+
+#get-started-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 0, 128, 0.5);
+}
+
+#get-started-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 10px rgba(255, 0, 128, 0.4);
+}
+
+#get-started-button:focus {
+    outline: none;
+}
+
+
+
+
+
 /* Hero Section */
 .hero {
     display: flex;
