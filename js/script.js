@@ -1,3 +1,76 @@
+// Import Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyC5JTd88XMPaw8ThV8i4wh8r37uhSuuKiQ",
+    authDomain: "trendify-30126.firebaseapp.com",
+    databaseURL: "https://trendify-30126-default-rtdb.firebaseio.com",
+    projectId: "trendify-30126",
+    storageBucket: "trendify-30126.firebasestorage.app",
+    messagingSenderId: "816600328899",
+    appId: "1:816600328899:web:4b01799c1e82e932451076",
+    measurementId: "G-9QV2QDB3CG"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// Elements
+const getStartedBtn = document.getElementById("getStartedBtn");
+const popup = document.getElementById("popup");
+const popupCloseBtn = document.getElementById("popup-close");
+const userForm = document.getElementById("userForm");
+
+// Show Popup
+getStartedBtn.addEventListener("click", () => {
+    popup.style.display = "block";
+});
+
+// Close Popup
+popupCloseBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+
+// Form Submission
+userForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const whatsapp = document.getElementById("whatsapp").checked;
+    const imo = document.getElementById("imo").checked;
+    const phoneCall = document.getElementById("phoneCall").checked;
+
+    // Create Data Object
+    const data = {
+        name: name,
+        phone: phone,
+        preferences: {
+            whatsapp: whatsapp,
+            imo: imo,
+            phoneCall: phoneCall,
+        },
+    };
+
+    // Store Data in Firebase
+    const userId = Date.now(); // Unique ID
+    set(ref(db, "users/" + userId), data)
+        .then(() => {
+            alert("Data stored successfully!");
+            userForm.reset();
+            popup.style.display = "none";
+        })
+        .catch((error) => {
+            console.error("Error storing data: ", error);
+        });
+});
+
+
+
+
 // Floating WhatsApp Button
 document.addEventListener("DOMContentLoaded", () => {
     const whatsappButton = document.createElement("div");
